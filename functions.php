@@ -1,0 +1,45 @@
+<?php
+add_action( 'wp_enqueue_scripts', 'theme_enqueue_styles' );
+function theme_enqueue_styles() {
+    wp_enqueue_style( 'parent-style', get_template_directory_uri() . '/style.css' );
+    wp_enqueue_style( 'child-style',
+        get_stylesheet_directory_uri() . '/style.css',
+        array('parent-style')
+    );
+}
+
+
+add_image_size( 'wear', 150,240, true ); // 250 pixels wide (and unlimited height)
+add_image_size( 'slides', 220, 180, true ); // (cropped)
+add_image_size( 'mentor', 300, 300, true ); // (cropped)
+
+
+
+function keyword_theme_styles_and_scripts(){
+
+if (is_tag() || is_admin() || is_search('slides') || is_archive('slides') || is_single() && 'home' == get_post_type() ||
+is_search('product') || is_archive('product') || is_single() && 'katalog' == get_post_type() ||
+is_search('session_type') || is_archive('session_type') || is_single() && 'sacred-sessions' == get_post_type()
+) {
+
+
+wp_enqueue_script('preloader', get_stylesheet_directory_uri() . '/assets/js/preloader.js', array('jquery'), null,true);
+}
+}
+add_action('wp_enqueue_scripts', 'keyword_theme_styles_and_scripts');
+
+function mind_defer_scripts( $tag, $handle, $src ) {
+$defer = array( 
+'preloader',
+);
+if ( in_array( $handle, $defer ) ) {
+           return '<script src="' . $src . '" defer="defer" type="text/javascript"></script>' . "\n";
+}
+          
+return $tag;
+} 
+add_filter( 'script_loader_tag', 'mind_defer_scripts', 10, 3 );
+
+
+
+
