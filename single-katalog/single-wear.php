@@ -38,7 +38,7 @@ if (has_post_thumbnail()) {
 
 
 <div class="container title_container archive-container">
-<div id="page-title-custom" class="wow fadeIn" style="visibility: visible; animation-name: fadeIn;">
+<div id="page-title-custom" style="visibility: visible; animation-name: fadeIn;">
 
 
 <?php $post_id	 = get_the_ID(); 
@@ -107,7 +107,11 @@ endif; ?>
 </div><!--product-half-->
 
 <div class="pic-half single-wear-item wow">
-<img class="single-wear-image" src="<?php echo esc_url($thumbnail_url); ?>'">
+<img class="single-wear-image " src="
+<?php 
+if (!empty($thumbnail_url)) {
+echo esc_url($thumbnail_url); }
+?>">
 </div>
 </div>
 
