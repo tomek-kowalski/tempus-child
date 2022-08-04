@@ -11,6 +11,11 @@
 
 /* Add Custom CSS after this line */
 
+.logo-center #logo {
+display: inline-block;
+text-align: center;
+margin: 0px!important;
+}
 
 .item-description-alt {
 position: absolute;
@@ -69,7 +74,7 @@ position:relative;
 @media only screen and (min-width: 960px) {
 
 .two-one {
-width: 150px;
+min-width: 180px;
 }
 .two-two {
 width: 150px;
@@ -93,7 +98,7 @@ height: min-content;
 
 .two-one {
 margin-top: 20px;
-width: 150px;
+min-width: 180px;
 left:50px;
 }
 .two-two {
@@ -116,7 +121,7 @@ left: 30px;
 @media only screen and (max-width: 667px) {
 
 .two-one {
-width: 150px;
+min-width: 180px;
 left:40px;
 }
 .two-two {
@@ -155,7 +160,7 @@ position: relative;
 visibility: hidden;
 padding: 20px;
 z-index: 10;
-height: 240px;
+height: 288px;
 margin-bottom: 20px;
 color: #000;
 -webkit-transition: background-color .3s ease-in-out;
@@ -199,41 +204,34 @@ z-index: 10;
 position: absolute;
 top: 0;
 left: 0;
-width: 150px;
+min-width: 180px;
 height: 100%;
 z-index: -1;
 opacity: 1;
 background-position: center;
 background-size: cover;
 background-repeat: no-repeat;
-/*-webkit-transform: translateY(100%);
-transform: translateY(100%);*/
--webkit-transition: opacity .8s ease;
-transition: opacity .8s ease;
-/*-webkit-transition-delay: .1s;
-transition-delay: .1s;*/
+image-rendering: -webkit-optimize-contrast;
+-webkit-transform: scale(0.999);
+  transform: scale(0.999);
 }
 
 .wear-item:hover .wear-image {
 opacity: 0.7;
-/*-webkit-transform: translateY(0);
-transform: translateY(0);*/
+background: lightgrey;
+background-size: cover;
 }
 
 
 .wear-item .blog-link:before {
 content: '';
 position: absolute;
-width: 150px;
+min-width: 180px;
 height: 100%;
 opacity: 1;
 background: none;
 -webkit-transition: opacity .3s ease-in-out;
 transition: opacity .3s ease-in-out;
-}
-
-.wear-item:hover {
-background: lightgrey;
 }
 
 
@@ -774,9 +772,15 @@ transform: translateX(0) translateY(0);
 }
 
 .container.title_container.archive-container #page-title-custom h1 {
-font-size: 1em;
+font-size: 1.5rem!important;
 line-height: 1.2;
 font-weight: 700;
+}
+
+.container.title_container.archive-container #page-title h1 {
+  font-size: 1.5rem!important;
+  line-height: 1.2;
+  font-weight: 700;
 }
 
 .boxed-slider .fullscreen-title-small .subtitle {

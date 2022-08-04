@@ -19,9 +19,7 @@ if (has_post_thumbnail()) {
 	$thumbnail_url = $thumbnail_data[0];
 } ?>
 
-<div  class="spinner-custom" >
-<div  id="myloader"></div>
-</div>
+
 <?php // var_dump( $GLOBALS['wp_scripts']->registered ); ?>
 <div id="spinload" class="container" hidden>
 <div class="block-center">

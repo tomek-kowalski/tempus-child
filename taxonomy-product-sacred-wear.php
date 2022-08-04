@@ -4,7 +4,9 @@
  * @package WordPress
  */
 get_header(); ?>
-
+<div  class="spinner-custom" >
+<div  id="myloader"></div>
+</div>
 <div class="container blog-content">
 
 	<?php while (have_posts()) : the_post();
