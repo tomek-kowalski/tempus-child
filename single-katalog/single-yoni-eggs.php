@@ -23,6 +23,7 @@ $label_payment_link     		= acf_get_field('label_buy')["default_value"];
 $label_product_description   	= acf_get_field('label_product_description')["default_value"];
 $label_other_sizes    			= acf_get_field('label_other_sizes')["default_value"];
 $label_other_features     		= acf_get_field('label_other_features')["default_value"];
+$clients     					= acf_get_field('clients')["default_value"];
 
 
 get_header();
@@ -114,6 +115,9 @@ endif; ?>
 </div><!--post-content-->
 <div class="twelve-special">
 <div class="container-row slide-control">
+<div class="product-title"><h1><?php if(!empty($clients)) {
+echo $clients;
+} ?></h2></div>
 <?php get_template_part( '/templates/template', 'portfolio-boxed-slider-yoni-eggs' ); ?>
 </div>
 <div class="container-row ">

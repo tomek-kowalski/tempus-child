@@ -22,6 +22,7 @@ $photo_7_bali    	            = get_field('photo_7');
 $photo_8_bali    	            = get_field('photo_8');
 $payment_link     		        = get_field('payment_link');
 $date            		        = get_field('date');
+$clients     					= acf_get_field('clients')["default_value"];
 
 //product label
 $label_contact_link     = acf_get_field('label_contact')["default_value"];
@@ -96,6 +97,9 @@ echo wp_get_attachment_image($photo_large_left_bali,'150','240'); ?>
 
 <div class="twelve-special">
 <div class="container-row slide-control">
+<div class="product-title"><h1><?php if(!empty($clients)) {
+echo $clients;
+} ?></h2></div>
 <?php get_template_part( '/templates/template', 'portfolio-boxed-slider-retreats' ); ?>
 </div>
 

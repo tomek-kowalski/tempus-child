@@ -23,6 +23,7 @@ $label_payment_link     		= acf_get_field('label_buy')["default_value"];
 $label_product_description   	= acf_get_field('label_product_description')["default_value"];
 $label_other_sizes    			= acf_get_field('label_other_sizes')["default_value"];
 $label_other_features     		= acf_get_field('label_other_features')["default_value"];
+$clients     					= acf_get_field('clients')["default_value"];
 
 
 get_header();
@@ -43,10 +44,12 @@ if (has_post_thumbnail()) {
 <div id="page-title-custom" class="wow fadeIn" style="visibility: visible; animation-name: fadeIn;">
 
 
-<?php $post_id	 = get_the_ID(); 
+<?php $post_id	 = get_the_id();
 $current_tax = get_terms( array(
 	'taxonomy'   => 'product',
 	'object_ids' => $post_id, // set the object_ids
+	'childless' => true
+
 ) );
 
 
@@ -54,7 +57,7 @@ foreach( $current_tax as $current ) { ?>
 
 		<?php
 
-		//var_dump($current_tax);
+		//var_dump($current);
 		echo '<a href="' . esc_url( get_term_link($current ) ) . '" alt="' . esc_attr( sprintf($current->name) ) . '">' . '<h1>' .esc_html__($current->name,'text-domain') . '</h1>'. '</a>'; 
 		}
 		?>
@@ -117,6 +120,9 @@ endif; ?>
 </div><!--post-content-->
 <div class="twelve-special">
 <div class="container-row slide-control">
+<div class="product-title"><h1><?php if(!empty($clients)) {
+echo $clients;
+} ?></h2></div>
 <?php get_template_part( '/templates/template', 'portfolio-boxed-slider-incenses' ); ?>
 </div>
 <div class="container-row ">
