@@ -868,7 +868,7 @@ transform: translateX(0) translateY(0);
 }
 
 .container.title_container.archive-container #page-title-custom h1 {
-font-size: 1em;
+font-size: 1.5em;
 line-height: 1.2;
 font-weight: 700;
 }
@@ -1251,8 +1251,13 @@ width: auto;
 margin-right:20px;
 }
 
+.cat-menu {
+margin-bottom: 10px;
+}
+
 .cat-item {
 margin-bottom: 10px;
+min-width:290px;
 }
 
 .cats-cust-session {

@@ -27,7 +27,7 @@ $products = get_terms( array(
 		<div class="cats-menu">
 		<ul class="my-listing">
 		<?php 
-			echo '<a href="' . esc_url( get_term_link( $single_product ) ) . '" alt="' . esc_attr( sprintf($single_product->name ) ) . '">' . '<li class="cat-item">' . esc_html__($single_product->name,'text-domain') . " " . '</li>' . '</a>'; ?>
+			echo '<a href="' . esc_url( get_term_link( $single_product ) ) . '" alt="' . esc_attr( sprintf($single_product->name ) ) . '">' . '<li class="cat-menu">' . esc_html__($single_product->name,'text-domain') . " " . '</li>' . '</a>'; ?>
 		</ul>
 		</div>
 		<?php
