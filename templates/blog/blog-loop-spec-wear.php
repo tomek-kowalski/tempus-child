@@ -33,12 +33,13 @@ if (has_post_thumbnail()) {
 <a href="<?php the_permalink(); ?>" rel="bookmark" class="blog-link"></a>
 <div class="wear-image" style="background-image:url('<?php echo esc_url($thumbnail_url) ?>')"></div>
 </div>
-
+<div class="wear-data">
 <h2><?php echo $product_name; ?><h2>
 <ul>
 <li><?php echo $size; ?></li>
 </ul>
 <div class="cat-price"><?php echo $price; ?></div>
+</div>
 </div><!--third-all-->
 
 </div><!--column-wear-->
