@@ -33,7 +33,7 @@ $sec_gallery = (get_post_meta(get_the_ID(), 'tempus_post_gallery_images', TRUE))
 
 if (has_post_thumbnail()) {
 	
-	$thumbnail_data = wp_get_attachment_image_src( get_post_thumbnail_id( get_the_ID() ), 'wear' );
+	$thumbnail_data = wp_get_attachment_image_src( get_post_thumbnail_id( get_the_ID() ), 'tool' );
 	$thumbnail_url = $thumbnail_data[0];
 } ?>
 
