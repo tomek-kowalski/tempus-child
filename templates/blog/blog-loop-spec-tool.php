@@ -36,7 +36,7 @@ if (has_post_thumbnail()) {
 <div class="tool-data">
 <h2><?php echo $product_name; ?><h2>
 <ul>
-<li><?php echo $size; ?></li>
+<li class="blog-tool"><?php echo $size; ?></li>
 </ul>
 <div class="cat-price"><?php echo $price; ?></div>
 </div>

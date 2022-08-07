@@ -38,7 +38,7 @@ if (has_post_thumbnail()) {
 } ?>
 
 <div class="container title_container archive-container">
-<div id="page-title-custom" class="wow fadeIn" style="visibility: visible; animation-name: fadeIn;">
+<div id="page-title-custom" class="wow fadeIn" style="visibility: visible; animation-name: fadeIn;" hidden>
 
 
 <?php $post_id	 = get_the_ID(); 
@@ -58,8 +58,10 @@ foreach( $current_tax as $current ) { ?>
 		?>
 </div>
 </div>
-
-<div class="container">
+<div  class="spinner-custom" >
+<div  id="myloader"></div>
+</div>
+<div class="container" hidden>
 
 
 

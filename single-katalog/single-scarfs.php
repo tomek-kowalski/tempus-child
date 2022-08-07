@@ -58,9 +58,10 @@ foreach( $current_tax as $current ) { ?>
 		?>
 </div>
 </div>
-
-<div class="container">
-
+<div  class="spinner-custom" >
+<div  id="myloader"></div>
+</div>
+<div class="container" hidden>
 
 
 		<div class="columns blog-nosidebar <?php echo esc_attr($sec_gallery); ?>">
