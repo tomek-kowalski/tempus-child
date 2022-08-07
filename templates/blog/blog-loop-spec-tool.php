@@ -15,7 +15,7 @@ if ( function_exists('get_post_format') && get_post_format($post->ID) == 'link' 
 
 if (has_post_thumbnail()) {
 	
-	$thumbnail_data = wp_get_attachment_image_src( get_post_thumbnail_id( get_the_ID() ), 'wear' );
+	$thumbnail_data = wp_get_attachment_image_src( get_post_thumbnail_id( get_the_ID() ), 'tool' );
 	$thumbnail_url = $thumbnail_data[0];
 } ?>
 
@@ -33,12 +33,13 @@ if (has_post_thumbnail()) {
 <a href="<?php the_permalink(); ?>" rel="bookmark" class="blog-link"></a>
 <div class="wear-image" style="background-image:url('<?php echo esc_url($thumbnail_url) ?>')"></div>
 </div>
-
+<div class="tool-data">
 <h2><?php echo $product_name; ?><h2>
 <ul>
 <li><?php echo $size; ?></li>
 </ul>
 <div class="cat-price"><?php echo $price; ?></div>
+</div>
 </div><!--third-all-->
 
 </div><!--column-wear-->

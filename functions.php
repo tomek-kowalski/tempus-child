@@ -9,9 +9,10 @@ function theme_enqueue_styles() {
 }
 
 
-add_image_size( 'wear', 150,240, true ); // 250 pixels wide (and unlimited height)
-add_image_size( 'slides', 220, 180, true ); // (cropped)
-add_image_size( 'mentor', 300, 300, true ); // (cropped)
+add_image_size( 'wear', 150,240, false ); 
+add_image_size( 'tool', 220,220, false );
+add_image_size( 'slides', 220, 180, false ); // (cropped)
+add_image_size( 'mentor', 300, 300, false ); // (cropped)
 
 
 
