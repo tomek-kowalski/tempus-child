@@ -87,6 +87,7 @@ width: 150px;
 }
 .third-all {
 width: 300px;
+margin-bottom:40px;
 }
 .block-center {
 display: block;
@@ -131,6 +132,13 @@ float: left;
 margin-top: 40px;
 margin-left: 10px;
 margin-right: 30px;
+}
+.row-tool {
+display:inline;
+float: left;
+margin-top: 40px;
+margin-left: 10px;
+margin-right: 60px;
 }
 }
 /* ------------------------------------------------ */
@@ -198,6 +206,13 @@ transition: opacity .8s ease;
 transition-delay: .1s;*/
 }
 .row-wear {
+display:inline;
+float: none;
+margin-top: 40px;
+margin-left: 10px;
+margin-right: 30px;
+}
+.row-tool {
 display:inline;
 float: none;
 margin-top: 40px;
@@ -274,6 +289,11 @@ background: none;
 transition: opacity .3s ease-in-out;
 }
 .row-wear {
+display:flex;
+flex-direction: column; 
+width:100%;
+}
+.row-tool {
 display:flex;
 flex-direction: column; 
 width:100%;
@@ -914,9 +934,8 @@ opacity: 0.7;
 overflow: hidden;
 position: relative;
 visibility: hidden;
-padding: 20px;
 z-index: 10;
-height: 150px;
+height: 180px;
 margin-bottom: 20px;
 color: #000;
 -webkit-transition: background-color .3s ease-in-out;
@@ -934,10 +953,8 @@ z-index: 2;
 }
 
 .wear-item-tool .wear-image {
-position: absolute;
 top: 0;
 left: 0;
-width: 240px;
 height: 100%;
 z-index: -1;
 opacity: 1;
@@ -962,7 +979,6 @@ transform: translateY(0);*/
 .wear-item-tool .blog-link:before {
 content: '';
 position: absolute;
-width: 240px;
 height: 100%;
 opacity: 1;
 background: none;
@@ -996,7 +1012,7 @@ height:300px;
 }
 
 .two-one-tool {
-width: 240px;
+width: 288px;
 }
 .two-two-tool {
 width: 150px;

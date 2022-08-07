@@ -20,16 +20,13 @@ if (has_post_thumbnail()) {
 } ?>
 
 
-<div  class="spinner-custom" >
-<div  id="myloader"></div>
-</div>
 <?php // var_dump( $GLOBALS['wp_scripts']->registered ); ?>
 <div id="spinload" class="container" hidden>
 <div class="block-center">
 <article  id="post-<?php the_ID(); ?>" data-id="<?php the_ID(); ?>" data-wow-delay="<?php echo esc_attr($rand);?>ms">
 
 
-<div <?php post_class('row-wear'); ?>>
+<div <?php post_class('row-tool'); ?>>
 
 <div class="third-all	">
 <div <?php post_class('two-one-tool wear-item-tool wow fadeIn')?>>
