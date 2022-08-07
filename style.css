@@ -1225,12 +1225,12 @@ object-fit: cover;
 text-align: center;
 margin-bottom: 25px;
 }
-.status-publish ul li {
+.li-way ul li {
 text-align: center!important;
 padding-left: 20px!important;
 list-style-position: inside;
 }
-.status-publish .blog-tool li::marker {
+.li-way .blog-tool li::marker {
 text-align: center!important;
 } 
 .wear-item-tool {

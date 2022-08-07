@@ -35,9 +35,11 @@ if (has_post_thumbnail()) {
 </div>
 <div class="tool-data">
 <h2><?php echo $product_name; ?><h2>
+<div class="li-way">
 <ul>
-<li class="blog-tool"><?php echo $size; ?></li>
+<li><?php echo $size; ?></li>
 </ul>
+</div>
 <div class="cat-price"><?php echo $price; ?></div>
 </div>
 </div><!--third-all-->

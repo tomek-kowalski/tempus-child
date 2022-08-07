@@ -38,7 +38,7 @@ if (has_post_thumbnail()) {
 } ?>
 
 <div class="container title_container archive-container">
-<div id="page-title-custom" class="wow fadeIn" style="visibility: visible; animation-name: fadeIn;" hidden>
+<div id="page-title-custom" class="wow fadeIn" style="visibility: visible; animation-name: fadeIn;">
 
 
 <?php $post_id	 = get_the_ID(); 
