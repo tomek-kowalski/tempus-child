@@ -38,7 +38,7 @@ $image_size = 'tempus_masonry_off' ? "tempus_portfolio-main" : "tempus_portfolio
 <div  id="myloader"></div>
 </div>
 
-<div class="container portfolio_container boxed-style <?php echo esc_html($container_fullwidth); ?>" >
+<div class="container portfolio_container boxed-style <?php echo esc_html($container_fullwidth); ?>" hidden>
 
 	<div id="portfolio-wrapper">
 
