@@ -42,5 +42,10 @@ return $tag;
 add_filter( 'script_loader_tag', 'mind_defer_scripts', 10, 3 );
 
 
-
-
+function wps_get_terms_orderby( $orderby, $tax_terms ) {
+    if ( isset( $tax_terms['orderby'] ) && 'include' == $tax_terms['orderby'] ) {
+          $include = implode(',', array_map( 'absint', $tax_terms['include'] ));
+          $orderby = "FIELD( t.term_id, $include )";
+      }
+      return $orderby;
+  }

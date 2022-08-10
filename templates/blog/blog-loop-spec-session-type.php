@@ -71,12 +71,12 @@ if (has_post_thumbnail()) {
 echo wp_get_attachment_image($photo_large,'150','240'); ?>
 </div>
 <div class="column-pic-25-session">
-<img src="<?php if (!empty($photo_1)) : esc_url(the_field('photo_1')); endif; ?>'">
-<img  src="<?php if (!empty($photo_2)) : esc_url(the_field('photo_2')); endif;  ?>'">
+<img src="<?php if (!empty($photo_1)) :  esc_url(the_field('photo_1')); endif; ?>'" onerror="this.style.display='none'">
+<img  src="<?php if (!empty($photo_2)) : esc_url(the_field('photo_2')); endif;  ?>'" onerror="this.style.display='none'">
 </div>
 <div class="column-pic-25-session">
-<img  src="<?php if (!empty($photo_3)) : esc_url(the_field('photo_3')); endif; ?>'">
-<img  src="<?php if (!empty($photo_4)) : esc_url(the_field('photo_4')); endif; ?>'">
+<img  src="<?php if (!empty($photo_3)) : esc_url(the_field('photo_3')); endif; ?>'" onerror="this.style.display='none'">
+<img  src="<?php if (!empty($photo_4)) : esc_url(the_field('photo_4')); endif; ?>'" onerror="this.style.display='none'">
 </div>
 </div>
 

@@ -75,16 +75,16 @@ if ( function_exists('get_post_format') && get_post_format($post->ID) == 'link' 
 echo wp_get_attachment_image($photo_large_left_bali,'150','240'); ?>
 </div>
 <div class="column-pic-25">
-<img class="pic-size" src="<?php if (!empty(the_field('photo_1'))) esc_url(the_field('photo_1')); ?>'">
-<img class="pic-size" src="<?php if (!empty(the_field('photo_2'))) esc_url(the_field('photo_2')); ?>'">
-<img class="pic-size" src="<?php if (!empty(the_field('photo_5'))) esc_url(the_field('photo_5')); ?>'">
-<img class="pic-size" src="<?php if (!empty(the_field('photo_6'))) esc_url(the_field('photo_6')); ?>'">
+<img class="pic-size" src="<?php if (!empty(the_field('photo_1'))) esc_url(the_field('photo_1')); ?>'" onerror="this.style.display='none'">
+<img class="pic-size" src="<?php if (!empty(the_field('photo_2'))) esc_url(the_field('photo_2')); ?>'" onerror="this.style.display='none'">
+<img class="pic-size" src="<?php if (!empty(the_field('photo_5'))) esc_url(the_field('photo_5')); ?>'" onerror="this.style.display='none'">
+<img class="pic-size" src="<?php if (!empty(the_field('photo_6'))) esc_url(the_field('photo_6')); ?>'" onerror="this.style.display='none'">
 </div>
 <div class="column-pic-25">
-<img class="pic-size" src="<?php if (!empty(the_field('photo_3'))) esc_url(the_field('photo_3')); ?>'">
-<img class="pic-size" src="<?php if (!empty(the_field('photo_4'))) esc_url(the_field('photo_4')); ?>'">
-<img class="pic-size" src="<?php if (!empty(the_field('photo_7'))) esc_url(the_field('photo_7')); ?>'">
-<img class="pic-size" src="<?php if (!empty(the_field('photo_8'))) esc_url(the_field('photo_8')); ?>'">
+<img class="pic-size" src="<?php if (!empty(the_field('photo_3'))) esc_url(the_field('photo_3')); ?>'" onerror="this.style.display='none'">
+<img class="pic-size" src="<?php if (!empty(the_field('photo_4'))) esc_url(the_field('photo_4')); ?>'" onerror="this.style.display='none'">
+<img class="pic-size" src="<?php if (!empty(the_field('photo_7'))) esc_url(the_field('photo_7')); ?>'" onerror="this.style.display='none'">
+<img class="pic-size" src="<?php if (!empty(the_field('photo_8'))) esc_url(the_field('photo_8')); ?>'" onerror="this.style.display='none'">
 </div>
 </div>
 

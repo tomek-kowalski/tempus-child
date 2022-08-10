@@ -34,10 +34,10 @@ if ( empty($filters) ) {
 		
 	$tax_terms = get_terms( $tax, $args = array(
 	  'hide_empty' 		=> false, // do not hide empty terms
-	  'include'	   		=> '44,50,81,43,82,83',	
+	  'include'	   		=> '43,81,83,44,50,82',	
 	  'hierarchical' 	=> true,
-	  'orderby'			=> 'date',
-	  'order' 			=> 'DESC',
+	  'orderby'			=> 'include',
+	  'order' 			=> 'ASC',
 	));
 
 
