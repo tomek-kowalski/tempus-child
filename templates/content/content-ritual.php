@@ -22,11 +22,14 @@ $themeworm_slug = ( get_option('themeworm_slug') ) ?: 'portfolio-item';
 
 
 $term_sr = get_queried_object('81');
-$termchildren = get_terms( array(
+$tax_terms = get_terms( array(
 	'taxonomy'    => 'session_type',	
 	'parent'      => $term_sr->term_id, 
 	'depth'       => 1,
-	'hide_empty'  => false
+	'hide_empty'  => false,
+	'orderby' 	  =>'include',
+	'order'		  =>'ASC',
+	'include'	  => '90,88,84,95,87,86,94,96,83,82,85,89',	
   ));
 
 
@@ -44,7 +47,7 @@ $image_size = 'tempus_masonry_off' ? "tempus_portfolio-main" : "tempus_portfolio
 
 		<?php 
 
-foreach ( $termchildren as $child ) {
+foreach ( $tax_terms as $child ) {
 			
 $columns = new tempus_GetGlobal();
 $rand = rand (0, 400);
