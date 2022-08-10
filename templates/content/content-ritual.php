@@ -38,7 +38,7 @@ $image_size = 'tempus_masonry_off' ? "tempus_portfolio-main" : "tempus_portfolio
 <div  id="myloader"></div>
 </div>
 
-<div class="container portfolio_container boxed-style <?php echo esc_html($container_fullwidth); ?>" hidden>
+<div class="container portfolio_container boxed-style <?php echo esc_html($container_fullwidth); ?>" >
 
 	<div id="portfolio-wrapper">
 
@@ -69,25 +69,23 @@ $tempus_customurl = 'tempus_customurl'; ?>
 
 	<div class="picture">
 		<a href="<?php echo esc_url(get_term_link( $child )); ?>" class="portfolio-link">
-		<div class="thumb" data-ratio="<?php echo esc_html($ratio) ?>" style="background-image:url('<?php
+		<div class="thumb" data-ratio="<?php echo esc_html($ratio) ?>">
+		<?php
 	
-var_dump(get_term_link($child));
 			$image = get_field('picture', 'session_type_' . $child->term_id );
 		
 			if( !empty($child) && !empty($image)) {
-			   echo '<a>';
-				echo '<img src="' . $image['url'] . '" alt="' . $image['alt'] .'">';       
-				echo  '</a>';
-	
-				
+			echo '<a>';
+			echo '<img src="' . $image['url'] . '" alt="' . $image['alt'] .'">';       
+			echo '</a>';
 			}
-		
-		?>'";></div>
+		?>
+</div>
 		</a>
 	</div>
 
 	<div class="item-description-alt">
-		<h6><?php echo $term_name = get_term( $child )->name;; ?></h6>
+		<h6><?php echo $term_name = get_term( $child )->name; ?></h6>
 	</div>
 
 </div><?php

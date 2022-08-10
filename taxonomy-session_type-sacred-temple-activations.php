@@ -11,8 +11,6 @@ $tempus_columns = 'portfolio-three';
 $tempus_allow_multi_items = true;?>
 
 
-test
-
-<?php
+<?php get_template_part('/templates/content/content', 'ritual');  
 
 get_footer(); ?>

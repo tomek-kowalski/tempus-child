@@ -41,7 +41,7 @@ if ( function_exists('get_post_format') && get_post_format($post->ID) == 'link' 
 <div  id="myloader"></div>
 </div>
 <?php // var_dump( $GLOBALS['wp_scripts']->registered ); ?>
-<div id="spinload" class="container" hidden>
+<div id="spinload" class="container">
 
 		<div class="twelve-special columns blog-nosidebar <?php echo esc_attr($sec_gallery); ?>">
 
