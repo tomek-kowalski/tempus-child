@@ -1,5 +1,6 @@
-const preloader = document.getElementById("myloader").classList.add("loader"); 
-
+ document.getElementById("myloader").classList.add("loader"); 
+document.getElementById("myloader").removeAttribute("style");
+/*
 window.onload = (event) => {
     const loader = document.getElementById("myloader").classList.add("hiding"); 
     var spin = document.querySelectorAll(".container");  
@@ -8,7 +9,7 @@ window.onload = (event) => {
       nodeList[i].removeAttribute("hidden");
     }
   };
-
+*/
 console.log('page is fully loaded');
 
 

@@ -29,7 +29,7 @@ $tax_terms = get_terms( array(
 	'hide_empty'  => false,
 	'orderby' 	  =>'include',
 	'order'		  =>'ASC',
-	'include'	  => '90,88,84,95,87,86,94,96,83,82,85,89',	
+	'include'	  => '90,88,84,95,87,86,94,96,83',	
   ));
 
 

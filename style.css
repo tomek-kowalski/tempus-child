@@ -1515,26 +1515,29 @@ margin-top: 8px;
 vertical-align: middle;
 }
 
+#myloader {
+    -webkit-animation:rotate 1s linear infinite;
+    -moz-animation:rotate 1s linear infinite;
+    animation:rotate 1s linear infinite;
+}
+
 .loader {
+display: inline-block;
 height: 5rem;
 width: 5rem;
-border-radius: 50%;
+border-radius: 50%!important;
 border: 10px solid orange;
 border-top-color: #002147;
 box-sizing: border-box;
 background: transparent;
-animation: loading 1s linear infinite;
-transform: none !important;
 }
 
-@keyframes loading {
-0% {
-transform: rotate(0deg);
-}
-0% {
-transform: rotate(360deg);
-}
-}
+@keyframes rotate {
+    to { -webkit-transform: rotate(360deg); }
+  }
+  @-webkit-keyframes rotate {
+    to { -webkit-transform: rotate(360deg); }
+  }
 
 .hiding{
 display: none;
