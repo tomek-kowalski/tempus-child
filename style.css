@@ -1515,13 +1515,13 @@ margin-top: 8px;
 vertical-align: middle;
 }
 
-#myloader {
+#my {
     -webkit-animation:rotate 1s linear infinite;
     -moz-animation:rotate 1s linear infinite;
     animation:rotate 1s linear infinite;
 }
 
-.loader {
+.l {
 display: inline-block;
 height: 5rem;
 width: 5rem;

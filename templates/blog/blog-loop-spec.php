@@ -18,7 +18,10 @@ if (has_post_thumbnail()) {
 	$thumbnail_data = wp_get_attachment_image_src( get_post_thumbnail_id( get_the_ID() ), 'wear' );
 	$thumbnail_url = $thumbnail_data[0];
 } ?>
-
+<div  class="spinner-custom" >
+<div  id="my"></div>
+</div>
+<div class="container" hidden>
 <div class="block-center">
 <article  id="post-<?php the_ID(); ?>" data-id="<?php the_ID(); ?>" data-wow-delay="<?php echo esc_attr($rand);?>ms">
 
@@ -41,4 +44,5 @@ if (has_post_thumbnail()) {
 </div><!--column-wear-->
 
 </article>
+</div>
 </div>

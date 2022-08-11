@@ -21,7 +21,10 @@ if (has_post_thumbnail()) {
 
 
 <?php // var_dump( $GLOBALS['wp_scripts']->registered ); ?>
-<div id="spinload" class="container" hidden>
+<div  class="spinner-custom" >
+<div  id="my"></div>
+</div>
+<div class="container" hidden>
 <div class="block-center">
 <article  id="post-<?php the_ID(); ?>" data-id="<?php the_ID(); ?>" data-wow-delay="<?php echo esc_attr($rand);?>ms">
 

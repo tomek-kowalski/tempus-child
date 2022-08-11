@@ -38,10 +38,10 @@ if (has_post_thumbnail()) {
 ?>
 
 <div  class="spinner-custom" >
-<div  id="myloader"></div>
+<div  id="my"></div>
 </div>
 <?php // var_dump( $GLOBALS['wp_scripts']->registered ); ?>
-<div id="spinload" class="container" hidden>
+<div class="container" hidden>
 
 <div class="columns blog-nosidebar <?php echo esc_attr($sec_gallery); ?>">
 

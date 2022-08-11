@@ -38,7 +38,7 @@ if ( function_exists('get_post_format') && get_post_format($post->ID) == 'link' 
 }
 ?>
 <div  class="spinner-custom" >
-<div  id="myloader"></div>
+<div  id="my"></div>
 </div>
 <?php // var_dump( $GLOBALS['wp_scripts']->registered ); ?>
 <div id="spinload" class="container">

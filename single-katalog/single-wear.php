@@ -61,7 +61,7 @@ foreach( $current_tax as $current ) { ?>
 </div>
 
 <div  class="spinner-custom" >
-<div  id="myloader"></div>
+<div  id="my"></div>
 </div>
 <div class="container" hidden>
 
