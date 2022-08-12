@@ -81,22 +81,21 @@ $tempus_customurl = get_post_meta($post->ID, 'tempus_customurl', TRUE); ?>
 <div class="portfolio_sizer"></div>
 <div <?php post_class(esc_html($columns_style).' portfolio-item-slug wow fadeIn '); ?> id="post-<?php the_ID(); ?>" data-id="<?php the_ID(); ?>" data-wow-delay="<?php echo esc_attr($rand);?>ms">
 
-	<div class="picture">
-		<a href="<?php echo esc_url($thumbnail_url ); ?>" class="portfolio-link <?php if ( get_post_meta($post->ID, 'tempus_video_link', TRUE) && get_post_meta($post->ID, 'tempus_show_aslightbox', true) == 'on' ) { echo 'video-popup'; } ?>" <?php if ( get_post_meta($post->ID, 'tempus_show_aslightbox', true) == 'on' && !get_post_meta($post->ID, 'tempus_video_link', TRUE) ) { echo 'data-ratio="' . $video_ratio . '" data-fancybox="group"'; } if (get_post_meta($post->ID, 'tempus_portfolio_subtitle', TRUE) || get_post_meta($post->ID, 'tempus_video_link', TRUE)) { echo $video_data_caption; } if (get_post_meta($post->ID, 'tempus_video_link', TRUE)) { echo ' data-ratio="' . $video_ratio . '" data-fancybox="group"'; } ?> >
-		<div class="thumb" data-ratio="<?php echo esc_html($ratio) ?>" style="background-image:url('<?php
-	
 
+<div class="picture">
+<a href="<?php echo esc_url($thumbnail_url ); ?>" class="portfolio-link <?php if ( get_post_meta($post->ID, 'tempus_video_link', TRUE) && get_post_meta($post->ID, 'tempus_show_aslightbox', true) == 'on' ) { echo 'video-popup'; } ?>" <?php if ( get_post_meta($post->ID, 'tempus_show_aslightbox', true) == 'on' && !get_post_meta($post->ID, 'tempus_video_link', TRUE) ) { echo 'data-ratio="' . $video_ratio . '" data-fancybox="group"'; } if (get_post_meta($post->ID, 'tempus_portfolio_subtitle', TRUE) || get_post_meta($post->ID, 'tempus_video_link', TRUE)) { echo $video_data_caption; } if (get_post_meta($post->ID, 'tempus_video_link', TRUE)) { echo ' data-ratio="' . $video_ratio . '" data-fancybox="group"'; } ?> >
+		<div class="thumb" data-ratio="<?php echo esc_html($ratio) ?>">
+		<?php
+	
 			$image = get_field('picture', 'slides_' . $term->term_id );
 		
 			if( $term && !empty($image)) {
-			   echo '<a href="' . esc_url( !empty($term_link )) . '">';
-				echo '<img src="' . $image['url'] . '" alt="' . $image['alt'] .'">';       
-				echo  '</a>';
-	
-				
+			echo '<a>';
+			echo '<img src="' . $image['url'] . '" alt="' . $image['alt'] .'">';       
+			echo '</a>';
 			}
-		
-		?>');"></div>
+		?>
+</div>
 		</a>
 	</div>
 
