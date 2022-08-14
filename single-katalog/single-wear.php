@@ -24,7 +24,8 @@ $label_product_description   	= acf_get_field('label_product_description')["defa
 $label_other_sizes    			= acf_get_field('label_other_sizes')["default_value"];
 $label_other_features     		= acf_get_field('label_other_features')["default_value"];
 $clients     					= acf_get_field('clients')["default_value"];
-
+$click 	    					= acf_get_field('click')["default_value"];
+$clickexit 	    			    = acf_get_field('clickexit')["default_value"];
 
 get_header();
 
@@ -107,14 +108,21 @@ endif; ?>
 </ul>
 </div><!--product-half-->
 
-<div class="pic-half single-wear-item wow">
+<div class="pic-half">
+<div class="click-wear">
+<button onclick="showclosePopup()" class="btn-shape btn-control"><span class="btn-label"><?php echo $click ?><span></button>
+<div class="full-screen full-container-center hidden">
+<button onclick="showclosePopup()" class="btn-shape click-wear"><span class="btn-label"><?php echo $clickexit ?><span></button>
+</div>
+</div>
+
+<div class="single-wear-item wow">
 <img class="single-wear-image" src="<?php echo esc_url($thumbnail_url); ?>'">
+</div><!--single-wear-->
 </div>
 </div>
-
-
-
 </div><!--pic-half-->
+
 </div><!--snap-->
 </div><!--post-content-->
 <div class="container-row slide-control">

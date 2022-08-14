@@ -14,7 +14,12 @@ add_image_size( 'tool', 220,220, false );
 add_image_size( 'slides', 220, 180, false ); // (cropped)
 add_image_size( 'mentor', 300, 300, false ); // (cropped)
 
-
+function popup() {
+if (is_single() && 'katalog' == get_post_type()) {
+wp_enqueue_script('popup', get_stylesheet_directory_uri() . '/assets/js/popup.js', array('jquery'), null,true);
+}
+}
+add_action ('wp_enqueue_scripts','popup');
 
 function keyword_theme_styles_and_scripts(){
 
@@ -22,8 +27,6 @@ if (is_tag() || is_admin() || is_search('slides') || is_archive('slides') || is_
 is_search('product') || is_archive('product') || is_single() && 'katalog' == get_post_type() ||
 is_search('session_type') || is_archive('session_type') || is_single() && 'sacred-sessions' == get_post_type()
 ) {
-
-
 wp_enqueue_script('preloader', get_stylesheet_directory_uri() . '/assets/js/preloader.js', array('jquery'), null,true);
 }
 }
