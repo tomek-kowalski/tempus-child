@@ -110,9 +110,10 @@ endif; ?>
 
 <div class="pic-half">
 <div class="click-wear">
-<button onclick="showclosePopup()" class="btn-shape btn-control"><span class="btn-label"><?php echo $click ?><span></button>
+<button id="button_to_load_data" onclick="showclosePopup()" class="btn-shape btn-control"><span class="btn-label"><?php echo $click ?><span></button>
 <div class="full-screen full-container-center hidden">
 <button onclick="showclosePopup()" class="btn-shape click-wear"><span class="btn-label"><?php echo $clickexit ?><span></button>
+<div id="receiving_div_id"></div>
 </div>
 </div>
 
@@ -146,4 +147,8 @@ echo $clients;
 	</div>
 <?php } ?>
 
-<?php get_footer(); 
+<?php get_footer(); ?>
+
+<script type="text/javascript" >
+
+</script>

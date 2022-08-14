@@ -17,9 +17,34 @@ add_image_size( 'mentor', 300, 300, false ); // (cropped)
 function popup() {
 if (is_single() && 'katalog' == get_post_type()) {
 wp_enqueue_script('popup', get_stylesheet_directory_uri() . '/assets/js/popup.js', array('jquery'), null,true);
+wp_enqueue_script('ajax-wear', get_stylesheet_directory_uri() . '/assets/js/ajax-wear.js', array('jquery'), null,true);
 }
 }
 add_action ('wp_enqueue_scripts','popup');
+
+/*************************************************************************/
+
+function t4a_ajax_call(){
+
+    echo 'Ajax call output:';
+ 
+    echo '<pre>';
+    var_dump($_POST);
+    echo '</pre>';
+ 
+    wp_die();// this is required to terminate immediately and return a proper response
+ }
+ add_action('wp_ajax_nopriv_t4a_ajax_call', 't4a_ajax_call'); // for ALL users
+
+function myplugin_ajaxurl() {
+
+   echo '<script type="text/javascript">
+           var ajaxurl = "' . admin_url('admin-ajax.php') . '";
+         </script>';
+}
+add_action('wp_head', 'myplugin_ajaxurl');
+
+/*************************************************************************/
 
 function keyword_theme_styles_and_scripts(){
 

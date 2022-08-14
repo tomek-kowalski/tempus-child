@@ -17,6 +17,7 @@ function showclosePopup() {
     for (let i = 0; i < slider.length; i++) {
       slider[i].style.display = "none";
     }
+    
   } else {
     nav.style.display         = "flex";
     popup.classList.add('hidden');
@@ -28,6 +29,7 @@ function showclosePopup() {
     for (let i = 0; i < slider.length; i++) {
     slider[i].style.display   = "block";
     }
+
 
   }
 }
