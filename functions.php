@@ -16,7 +16,8 @@ add_image_size( 'mentor', 300, 300, false ); // (cropped)
 
 function popup() {
 if (is_single() && 'katalog' == get_post_type()) {
-wp_enqueue_script('popup', get_stylesheet_directory_uri() . '/assets/js/popup.js', array('jquery'), null,true);
+wp_enqueue_script('popupopen', get_stylesheet_directory_uri() . '/assets/js/popupopen.js', array('jquery'), null,true);
+wp_enqueue_script('popupclose', get_stylesheet_directory_uri() . '/assets/js/popupclose.js', array('jquery'), null,true);
 wp_enqueue_script('ajax-wear', get_stylesheet_directory_uri() . '/assets/js/ajax-wear.js', array('jquery'), null,true);
 }
 }
@@ -24,25 +25,30 @@ add_action ('wp_enqueue_scripts','popup');
 
 /*************************************************************************/
 
-function t4a_ajax_call(){
+add_action( 'wp_enqueue_scripts', 'myajax_data', 99 );
+function myajax_data(){
 
-    echo 'Ajax call output:';
- 
-    echo '<pre>';
-    var_dump($_POST);
-    echo '</pre>';
- 
-    wp_die();// this is required to terminate immediately and return a proper response
- }
- add_action('wp_ajax_nopriv_t4a_ajax_call', 't4a_ajax_call'); // for ALL users
+   wp_localize_script('ajax-wear', 'myajax', 
+     array(
+       'ajax_url' => admin_url('admin-ajax.php')
+     )
+   );  
 
-function myplugin_ajaxurl() {
-
-   echo '<script type="text/javascript">
-           var ajaxurl = "' . admin_url('admin-ajax.php') . '";
-         </script>';
 }
-add_action('wp_head', 'myplugin_ajaxurl');
+
+add_action('wp_ajax_tablo', 'tablo');
+add_action('wp_ajax_nopriv_tablo', 'tablo');
+
+function tablo() {
+    ob_start();
+    get_template_part(get_stylesheet_directory_uri() . 'extra-wear' );
+    $result = ob_get_contents();
+    ob_end_clean();
+    $return = array('content' => $result);
+    wp_send_json($return);
+    wp_die();
+  }
+
 
 /*************************************************************************/
 

@@ -7,7 +7,7 @@ function showclosePopup() {
   const showbtn  = document.querySelector('.btn-control');  
 
 
-  if (nav.style.display       === "flex") {
+  if (nav.style.display       == "" || "flex") {
     nav.style.display         = "none";
     popup.classList.remove('hidden');
     img.style.display         = "none";
@@ -18,7 +18,8 @@ function showclosePopup() {
       slider[i].style.display = "none";
     }
     
-  } else {
+  } elseif(nav.style.display  = "none") 
+   {
     nav.style.display         = "flex";
     popup.classList.add('hidden');
     img.style.display         = "block";

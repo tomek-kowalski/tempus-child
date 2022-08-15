@@ -1,12 +1,14 @@
-jQuery("#button_to_load_data").click(function() {
+jQuery("#ajaxbtn").click(function () {
+   jQuery.ajax({
+     type : 'post',
+     dataType : 'json',
+     url : myajax.ajax_url,
+     data : {action: 'tablo'},
+     success: function(response) {
+       //load the fetched php file into the div
+       jQuery('#ajax').html(response.content);
+       console.log("fuk");
+     }
+   });
+ });
 
-  var data = {
-     'action'   : 't4a_ajax_call', // the name of your PHP function!
-     'function' : 'show_files',    // a random value we'd like to pass
-     'fileid'   : '7'              // another random value we'd like to pass
-     };
-   
-  jQuery.post(ajaxurl, data, function(response) {
-     jQuery("#receiving_div_id").html(response);
-  });
-});
