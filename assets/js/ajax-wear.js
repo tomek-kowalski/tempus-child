@@ -6,8 +6,7 @@ jQuery("#ajaxbtn").click(function () {
      data : {action: 'tablo'},
      success: function(response) {
        //load the fetched php file into the div
-       jQuery('#ajax').html(response.content);
-       console.log("fuk");
+       jQuery('#ajax-input').html(response.content);
      }
    });
  });
