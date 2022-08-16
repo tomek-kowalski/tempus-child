@@ -112,7 +112,7 @@ endif; ?>
 <div class="click-wear">
 <button id="ajaxbtn" onclick="showPopup()" class="btn-shape btn-control"><span class="btn-label"><?php echo $click ?><span></button>
 <div class="full-screen full-container-center hidden">
-<button onclick="closePopup()" class="btn-shape click-wear"><span class="btn-label"><?php echo $clickexit ?><span></button>
+<button id="ajaxclose" onclick="closePopup()" class="btn-shape click-wear"><span class="btn-label"><?php echo $clickexit ?><span></button>
 <div id="ajax-input"></div>
 </div>
 </div>

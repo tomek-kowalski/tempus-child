@@ -13,6 +13,7 @@ add_image_size( 'wear', 150,240, false );
 add_image_size( 'tool', 220,220, false );
 add_image_size( 'slides', 220, 180, false ); // (cropped)
 add_image_size( 'mentor', 300, 300, false ); // (cropped)
+add_image_size( 'wear-extra', 1500, 2400, false ); // (cropped)
 
 function popup() {
 if (is_single() && 'katalog' == get_post_type()) {
@@ -30,22 +31,36 @@ function myajax_data(){
 
    wp_localize_script('ajax-wear', 'myajax', 
      array(
-       'ajax_url' => admin_url('admin-ajax.php')
+       'ajax_url' => admin_url('admin-ajax.php'),
+       'nonce' => wp_create_nonce( 'extra_wear_nonce' ),
      )
-   );  
-
+   );
 }
 
-add_action('wp_ajax_tablo', 'tablo');
-add_action('wp_ajax_nopriv_tablo', 'tablo');
+add_action('wp_ajax_extraimg', 'extraimg');
+add_action('wp_ajax_nopriv_extraimg', 'extraimg');
 
-function tablo() {
-    ob_start();
-    get_template_part(get_stylesheet_directory_uri() . 'extra-wear' );
-    $result = ob_get_contents();
-    ob_end_clean();
-    $return = array('content' => $result);
-    wp_send_json($return);
+function extraimg() {
+  $post_id	 = get_the_ID(); 
+  $current_tax = get_terms( array(
+    'taxonomy'   => 'product',
+    'object_ids' => $post_id, // set the object_ids
+  ) );
+
+  foreach( $current_tax as $current ) { 
+
+    $post_id            = get_the_id();
+    $img_1    	        = get_field('img_1',$post_id);
+    $img_2	            = get_field('img_2',$post_id);
+    $img_3              = get_field('img_3',$post_id);?>
+
+    <div>
+    <img src="<?php  if (!empty($img_1)) :  esc_url(the_field('img_1',$post_id)); endif; ?>'" onerror="this.style.display='none'">
+    <img  src="<?php if (!empty($img_2)) :  esc_url(the_field('img_2',$post_id)); endif;  ?>'" onerror="this.style.display='none'">
+    <img  src="<?php if (!empty($img_3)) :  esc_url(the_field('img_3',$post_id)); endif;  ?>'" onerror="this.style.display='none'">
+    </div>
+<?php
+     }
     wp_die();
   }
 
