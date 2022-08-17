@@ -15,7 +15,7 @@ $product_description    = get_field('product_description');
 $other_sizes    		= get_field('other_sizes');
 $other_features     	= get_field('other_features');
 
-
+$main_img    	    = get_field('main_img');
 $img_1    	        = get_field('img_1');
 $img_2	            = get_field('img_2');
 $img_3              = get_field('img_3');
@@ -37,11 +37,7 @@ get_header();
 $add_class = (get_post_meta($post->ID, 'tempus_content_padding', true) == "off") ? 'no-padding' : '';	
 $sec_gallery = (get_post_meta(get_the_ID(), 'tempus_post_gallery_images', TRUE)) ? 'is-gallery' : ''; 
 
-if (has_post_thumbnail()) {
-	
-	$thumbnail_data = wp_get_attachment_image_src( get_post_thumbnail_id( get_the_ID() ), 'wear' );
-	$thumbnail_url = $thumbnail_data[0];
-} ?>
+?>
 
 
 <div class="container title_container archive-container">
@@ -114,28 +110,30 @@ echo '<li class="cat-item">'  . $label_product_description . " " . $product_desc
 
 <div class="pic-half">
 
-<div class="single-wear-item wow">
-<img class="single-wear-image" src="<?php echo esc_url($thumbnail_url); ?>'">
-</div><!--single-wear-->
+<div class="product">
+ 	<div class="main-img">
+ 		<img src="<?php  if (!empty($main_img)) : echo esc_url(wp_get_attachment_image_url($main_img)); endif; ?>'" onerror="this.style.display='none'" class="pro-img" alt="product" />
+ 	</div>
+ 	<div class="thumb-img">
+	 <div class="box active" onclick="changeImage(this)">
+ 		   <img src="<?php  if (!empty($main_img)) : echo esc_url(wp_get_attachment_image_url($main_img)); endif; ?>'" onerror="this.style.display='none'" />
+ 	    </div>
+ 		<div class="box" onclick="changeImage(this)">
+ 		   <img src="<?php  if (!empty($img_1)) :  echo esc_url(wp_get_attachment_image_url($img_1)); endif; ?>'" onerror="this.style.display='none'" />
+ 	    </div>
+ 	    <div class="box" onclick="changeImage(this)">
+ 		   <img src="<?php  if (!empty($img_2)) :  echo esc_url(wp_get_attachment_image_url($img_2)); endif; ?>'" onerror="this.style.display='none'" />
+ 	    </div>
+ 	    <div class="box" onclick="changeImage(this)">
+ 		   <img src="<?php  if (!empty($img_3)) :  echo esc_url(wp_get_attachment_image_url($img_3)); endif; ?>'" onerror="this.style.display='none'"/>
+ 	    </div>
+ 	</div>
+ </div>
 
 </div><!--pic-half-->
 
 </div><!--snap-->
 
-<div class="single-gallery">
-<div class="img-gal">
-<img id="ajax-input" src="<?php echo wp_get_attachment_image_src( get_post_thumbnail_id( get_the_ID() ) )[0]; ?>'" onerror="this.style.display='none'">
-</div>
-<div class="img-gal">
-<img id="ajax-input" src="<?php  if (!empty($img_1)) :  echo esc_url(wp_get_attachment_image_url($img_1)); endif; ?>'" onerror="this.style.display='none'">
-</div>
-<div class="img-gal">
-<img id="ajax-input" src="<?php  if (!empty($img_2)) :  echo esc_url(wp_get_attachment_image_url($img_2)); endif; ?>'" onerror="this.style.display='none'">
-</div>
-<div class="img-gal">
-<img id="ajax-input" src="<?php  if (!empty($img_3)) :  echo esc_url(wp_get_attachment_image_url($img_3)); endif; ?>'" onerror="this.style.display='none'">
-</div>
-</div><!--single-gallery-->
 </div></div>
 </div><!--post-content-->
 
