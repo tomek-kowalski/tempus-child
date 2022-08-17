@@ -11,6 +11,22 @@
 
 /* Add Custom CSS after this line */
 
+.post-description {
+margin-bottom:80px;
+}
+
+.single-galler::after {
+  content: "";
+  clear: both;
+  display: table;
+  margin-bottom: 50px;
+}
+
+.img-gal {
+  float: right;
+  padding: 5px;
+}
+
 .portfolio-item-slug .thumb {
 opacity: 1!important;
 -webkit-transition: opacity 0.2s ease-in;
@@ -439,7 +455,6 @@ width: 920px;
 }
 .snap {
 display:flex;
-padding-bottom: 100px;
 }
 
 .post-left {
@@ -826,6 +841,7 @@ display: flex;
 /* ------------------------------------------------ */
 
 @media only screen and (min-width: 1200px) {
+
 
 .container-slider {
 padding-top: 10px;
