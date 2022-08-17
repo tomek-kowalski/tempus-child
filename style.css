@@ -11,6 +11,8 @@
 
 /* Add Custom CSS after this line */
 
+@media(min-width:1200px) {
+
 .product .main-img img{
 	display: block;
   background-color:rgb(155, 114, 168);
@@ -39,6 +41,40 @@
       max-width: 100%;
       max-height: 100%;
 }
+}
+
+@media(max-width:1199px) {
+
+  .product .main-img img{
+    display: block;
+    max-width:100%;
+    background-color:rgb(155, 114, 168);
+    opacity: 1;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+  
+  .product .thumb-img {
+    text-align: center;
+  
+  }
+  .product .thumb-img .box{
+    display: inline-block;
+    width:50px;
+    height:75px;
+    border:2px solid #8ea1af;
+    margin:2px;
+    cursor: pointer;
+  }
+  .product .thumb-img .box.active{
+    border-color:#545454;
+    
+  }
+  .product .thumb-img .box img{
+        max-width: 100%;
+        max-height: 100%;
+  }
+  }
 
 .post-description {
 margin-bottom:80px;

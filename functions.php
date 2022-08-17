@@ -8,6 +8,11 @@ function theme_enqueue_styles() {
     );
 }
 
+add_theme_support( 'wear');
+add_theme_support( 'tool');
+add_theme_support( 'slides');
+add_theme_support( 'mentor');
+add_theme_support( 'wear-extra');
 
 add_image_size( 'wear', 150,240, false ); 
 add_image_size( 'tool', 220,220, false );
@@ -15,7 +20,6 @@ add_image_size( 'slides', 220, 180, false ); // (cropped)
 add_image_size( 'mentor', 300, 300, false ); // (cropped)
 add_image_size( 'wear-extra', 300, 480, false ); // (cropped)
 
-add_filter('jpeg_quality', function($arg){return 100;});
 
 function popup() {
 if (is_single() && 'katalog' == get_post_type()) {

@@ -35,7 +35,7 @@ if (has_post_thumbnail()) {
 <div class="third-all	">
 <div <?php post_class('two-one wear-item wow fadeIn')?>>
 <a href="<?php the_permalink(); ?>" rel="bookmark" class="blog-link"></a>
-<div class="wear-image" style="background-image:url('<?php  if (!empty($main_img)) : echo esc_url(wp_get_attachment_image_url($main_img)); endif; ?>')"></div>
+<div class="wear-image" style="background-image:url('<?php  if (!empty($main_img)) : echo esc_url(wp_get_attachment_image_url($main_img,'wear')); endif; ?>')"></div>
 </div>
 <div class="wear-data">
 <h2><?php echo $product_name; ?><h2>
