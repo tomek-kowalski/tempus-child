@@ -47,8 +47,8 @@ $slider_query = new WP_Query ( $slider_query_args );
 
 if ( $slider_query->have_posts() ) { while ($slider_query->have_posts()) : $slider_query->the_post(); ?>
 
-	<?php if (has_post_thumbnail() && !post_password_required()) {
-		$portfolio_main = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'full' );
+	<?php if (wp_attachment_is_image(get_field('main_img')) && !post_password_required()) {
+		$portfolio_main = wp_get_attachment_image_src( get_field('main_img'), $post->ID,'full' );
 		$tempus_image_url = $portfolio_main[0];
 		$tempus_ratio = ($portfolio_main[2] > 0) ? $portfolio_main[1]/$portfolio_main[2] : '';
 		$tempus_slide_title = get_the_title();
