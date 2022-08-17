@@ -15,6 +15,11 @@ $product_description    = get_field('product_description');
 $other_sizes    		= get_field('other_sizes');
 $other_features     	= get_field('other_features');
 
+
+$img_1    	        = get_field('img_1');
+$img_2	            = get_field('img_2');
+$img_3              = get_field('img_3');
+
 //product label
 $label_price      				= acf_get_field('label_price')["default_value"];
 $label_size        				= acf_get_field('label_size')["default_value"];
@@ -74,13 +79,15 @@ foreach( $current_tax as $current ) { ?>
 				<div <?php post_class('post-page-cust ' . $add_class); ?> id="post-<?php the_ID(); ?>" >
 					<div class="post-content-cust post-left">
 					<div class="post-description">
-						<div class="snap">
+<div class="snap">
 
 
 <div class="product-half">
 <div class="product-title">
 <h1><?php echo $product_name; ?></h1>
+<div class="cat-price"><?php echo $price; ?></div>
 </div>
+
 <ul>		
 <?php echo '<li class="cat-item">' .  $label_size . " " . strtoupper($size) . '</li>	'; ?>			
 
@@ -94,38 +101,44 @@ if (!empty($other_features)) :
 
 echo '<li class="cat-item">' . $label_other_features . " " . $other_features . '</li>';
 else : 
-endif; ?>	
+endif; 	
+echo '<li class="cat-item">'  . $label_product_description . " " . $product_description . '</li>'; ?>
 </ul>
-<div class="cat-price"><?php echo $price; ?></div>
 <div class="btn-post" delay="<?php echo esc_attr($rand);?>ms">
 <a href="<?php echo get_site_url() . $contact_link; ?>" class="btn-shape"><span class="btn-label"><?php echo $label_contact_link; ?></span></a>	
 </div>
 <div class="btn-post" delay="<?php echo esc_attr($rand);?>ms">
 <a href="<?php echo $payment_link; ?>" class="btn-shape"><span class="btn-label"><?php echo $label_payment_link; ?></span></a>
 </div>
-<ul>
-<?php echo '<li class="cat-item">'  . $label_product_description . " " . $product_description . '</li>'; ?>
-</ul>
 </div><!--product-half-->
 
 <div class="pic-half">
-<div class="click-wear">
-<button id="ajaxbtn" onclick="showPopup()" class="btn-shape btn-control"><span class="btn-label"><?php echo $click ?><span></button>
-<div class="full-screen full-container-center hidden">
-<button id="ajaxclose" onclick="closePopup()" class="btn-shape click-wear"><span class="btn-label"><?php echo $clickexit ?><span></button>
-<div id="ajax-input"></div>
-</div>
-</div>
 
 <div class="single-wear-item wow">
 <img class="single-wear-image" src="<?php echo esc_url($thumbnail_url); ?>'">
 </div><!--single-wear-->
-</div>
-</div>
+
 </div><!--pic-half-->
 
 </div><!--snap-->
+
+<div class="single-gallery">
+<div class="img-gal">
+<img id="ajax-input" src="<?php echo wp_get_attachment_image_src( get_post_thumbnail_id( get_the_ID() ) )[0]; ?>'" onerror="this.style.display='none'">
+</div>
+<div class="img-gal">
+<img id="ajax-input" src="<?php  if (!empty($img_1)) :  echo esc_url(wp_get_attachment_image_url($img_1)); endif; ?>'" onerror="this.style.display='none'">
+</div>
+<div class="img-gal">
+<img id="ajax-input" src="<?php  if (!empty($img_2)) :  echo esc_url(wp_get_attachment_image_url($img_2)); endif; ?>'" onerror="this.style.display='none'">
+</div>
+<div class="img-gal">
+<img id="ajax-input" src="<?php  if (!empty($img_3)) :  echo esc_url(wp_get_attachment_image_url($img_3)); endif; ?>'" onerror="this.style.display='none'">
+</div>
+</div><!--single-gallery-->
+</div></div>
 </div><!--post-content-->
+
 <div class="container-row slide-control">
 <div class="product-title"><h1><?php if(!empty($clients)) {
 echo $clients;
