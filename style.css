@@ -12,8 +12,9 @@
 /* Add Custom CSS after this line */
 
 .product-column {
-display: flex;
 flex-direction: column;
+flex-basis: 40%;
+flex-wrap: wrap;
 }
 
 
@@ -41,7 +42,7 @@ flex-direction: column;
 }
 
 .box-ses{
-	display: inline-block;
+	flex-direction: row;
 	width:75px;
   height:100%;
 	border:2px solid #8ea1af;
@@ -1361,7 +1362,9 @@ transition: background-color .3s ease-in-out;
 
 .seesion-desc {
 text-align: left;
+max-width:350px;
 }
+
 
 .row-pic {
 display: flex;
@@ -1424,6 +1427,7 @@ padding: 0 14px;
 }
 
 .column-pic-25-session {
+flex-direction:column;
 flex-basis: 20%;
 padding: 0 8px 0px 0px;
 justify-content: flex-start;
