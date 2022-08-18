@@ -105,7 +105,7 @@ echo '<li class="cat-item">'  . $label_product_description . " " . $product_desc
 
 
 <div class="pic-half-tool single-wear-item-tool wow">
-<img class="single-wear-image" src="<?php if (!empty($thumbnail_url)) : echo esc_url($thumbnail_url); endif; ?>'">
+<img class="single-wear-image" src="<?php if (!empty($thumbnail_url)) : echo esc_url($thumbnail_url); endif; ?>'" onerror="this.style.display='none'" >
 </div>
 </div>
 
