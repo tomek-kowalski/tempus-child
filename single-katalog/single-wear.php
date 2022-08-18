@@ -4,7 +4,7 @@
  * @package WordPress
  */
 $rand = rand (0, 400);
-
+$size = 'wear-extra';
 //product value
 $product_name     		= get_field('product_name');
 $price      			= get_field('price');
@@ -15,7 +15,7 @@ $product_description    = get_field('product_description');
 $other_sizes    		= get_field('other_sizes');
 $other_features     	= get_field('other_features');
 
-$size = 'wear-extra';
+
 $main_img    	    = get_field('main_img');
 $img_1    	        = get_field('img_1');
 $img_2	            = get_field('img_2');
@@ -30,8 +30,7 @@ $label_product_description   	= acf_get_field('label_product_description')["defa
 $label_other_sizes    			= acf_get_field('label_other_sizes')["default_value"];
 $label_other_features     		= acf_get_field('label_other_features')["default_value"];
 $clients     					= acf_get_field('clients')["default_value"];
-$click 	    					= acf_get_field('click')["default_value"];
-$clickexit 	    			    = acf_get_field('clickexit')["default_value"];
+
 
 get_header();
 
@@ -112,12 +111,13 @@ echo '<li class="cat-item">'  . $label_product_description . " " . $product_desc
 <div class="pic-half">
 
 <div class="product">
+	
  	<div class="main-img">
- 		<img src="<?php  if (!empty($main_img)) : echo esc_url(wp_get_attachment_image_url($main_img,$size)); endif; ?>'" onerror="this.style.display='none'" class="pro-img" alt="product" />
+ 		<img src="<?php  if (!empty($main_img)) : echo esc_url(wp_get_attachment_image($main_img,$size)); endif; ?>'" onerror="this.style.display='none'" class="pro-img" alt="product" />
  	</div>
  	<div class="thumb-img">
 	 <div class="box active" onclick="changeImage(this)">
- 		   <img src="<?php  if (!empty($main_img)) : echo esc_url(wp_get_attachment_image_url($main_img,$size)); endif; ?>'" onerror="this.style.display='none'" />
+ 		   <img src="<?php  if (!empty($main_img)) : echo esc_url(wp_get_attachment_image($main_img,$size)); endif; ?>'" onerror="this.style.display='none'" />
  	    </div>
  		<div class="box" onclick="changeImage(this)">
  		   <img src="<?php  if (!empty($img_1)) :  echo esc_url(wp_get_attachment_image_url($img_1,$size)); endif; ?>'" onerror="this.style.display='none'" />

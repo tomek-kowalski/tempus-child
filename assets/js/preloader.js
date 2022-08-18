@@ -11,7 +11,7 @@ window.onload = (event) => {
     var spin = document.querySelectorAll(".container");  
     const nodeList = document.querySelectorAll(".container");
     for (let i = 0; i < nodeList.length; i++) {
-      nodeList[i].removeAttribute("hidden");
+    nodeList[i].removeAttribute("hidden");
     }
   };
 console.log('page is fully loaded');

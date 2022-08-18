@@ -13,21 +13,22 @@ add_theme_support( 'tool');
 add_theme_support( 'slides');
 add_theme_support( 'mentor');
 add_theme_support( 'wear-extra');
+add_theme_support( 'session');
 
 add_image_size( 'wear', 150,240, false ); 
 add_image_size( 'tool', 220,220, false );
 add_image_size( 'slides', 220, 180, false ); // (cropped)
 add_image_size( 'mentor', 300, 300, false ); // (cropped)
 add_image_size( 'wear-extra', 300, 480, false ); // (cropped)
+add_image_size( 'session', 360, 240, false ); // (cropped)
 
 
 function popup() {
-if (is_single() && 'katalog' == get_post_type()) {
+if (is_single() && 'katalog' == get_post_type() ||is_archive('session_type') ) {
 wp_enqueue_script('ajax-wear', get_stylesheet_directory_uri() . '/assets/js/ajax-wear.js', array('jquery'), null,true);
 }
 }
 add_action ('wp_enqueue_scripts','popup');
-
 
 
 function keyword_theme_styles_and_scripts(){

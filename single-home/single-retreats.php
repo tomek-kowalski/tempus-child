@@ -53,6 +53,7 @@ if ( function_exists('get_post_format') && get_post_format($post->ID) == 'link' 
                         <div class="product">
     <div class="product-title">
     <a href="<?php the_permalink(); ?>"><h1><?php the_title(); ?></h1></a>
+    <div class="cat-price"><?php the_field('price:'); ?></div>
     </div>  <div class="date-shape"><?php echo $date; ?></div>
     <ul>
     <li class="cat-item"><?php the_field('description'); ?></li> 
@@ -60,7 +61,7 @@ if ( function_exists('get_post_format') && get_post_format($post->ID) == 'link' 
     <li class="cat-item"><?php  if (!empty(the_field('program:'))) : the_field('program:'); endif; ?></li>
     <li class="cat-item"><?php if (!empty(the_field('what_to_bring:') )) : the_field('what_to_bring:');endif;?> </li>
     </ul>
-    <div class="cat-price"><?php the_field('price:'); ?></div>
+ 
     <div class="btn-post" delay="<?php echo esc_attr($rand);?>ms">
     <a href="<?php echo get_site_url() . $contact_link; ?>" class="btn-shape"><span class="btn-label"><?php echo $label_contact_link; ?></span></a>	
     </div>

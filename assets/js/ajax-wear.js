@@ -7,4 +7,7 @@ function changeImage(event){
     thumbs[i].classList.remove("active");
   }
   event.classList.add("active");
+
 }
+
+console.log('hi');
