@@ -7,15 +7,15 @@
 
 $price_bali       		        = get_field('price:');
 $photo_large_left_bali    		= get_field('photo_large_left');
-$photo_1_bali     	            = get_field('photo_1');
-$photo_2_bali    	            = get_field('photo_2');
-$photo_3_bali    	            = get_field('photo_3');
-$photo_4_bali    	            = get_field('photo_4');
-$photo_5_bali     	            = get_field('photo_5');
-$photo_6_bali    	            = get_field('photo_6');
-$photo_7_bali    	            = get_field('photo_7');
-$photo_8_bali    	            = get_field('photo_8');
-$date            		        = get_field('date');
+$photo_1    	            = get_field('photo_1');
+$photo_2   	                = get_field('photo_2');
+$photo_3    	            = get_field('photo_3');
+$photo_4    	            = get_field('photo_4');
+$photo_5     	            = get_field('photo_5');
+$photo_6    	            = get_field('photo_6');
+$photo_7    	            = get_field('photo_7');
+$photo_8                    = get_field('photo_8');
+$date            		    = get_field('date');
 
 
 $add_class = (get_post_meta($post, 'tempus_content_padding', true) == "off") ? 'no-padding' : '';
@@ -59,28 +59,29 @@ if (has_post_thumbnail()) {
 </div><!--snap-->
 <div class="row-pic">
 <div class="column-pic-50">
+<a href="<?php the_permalink(); ?>" rel="bookmark" class="blog-link">
 <?php if (!empty(($photo_large_left_bali)))
-echo wp_get_attachment_image($photo_large_left_bali,'150','240'); ?>
+echo wp_get_attachment_image($photo_large_left_bali,'150','240'); ?></a>
 </div>
 <div class="column-pic-25">
 <a href="<?php the_permalink(); ?>" rel="bookmark" class="blog-link">
-<img class="pic-size" src="<?php esc_url(the_field('photo_1')); ?>'"></a>
+<img class="pic-size" src="<?php  if (!empty($photo_1)) : echo esc_url(wp_get_attachment_image_url($photo_1,'150','220')); endif; ?>'"></a>
 <a href="<?php the_permalink(); ?>" rel="bookmark" class="blog-link">
-<img class="pic-size" src="<?php esc_url(the_field('photo_2')); ?>'"></a>
+<img class="pic-size" src="<?php  if (!empty($photo_2)) : echo esc_url(wp_get_attachment_image_url($photo_2,'150','220')); endif; ?>'"></a>
 <a href="<?php the_permalink(); ?>" rel="bookmark" class="blog-link">
-<img class="pic-size" src="<?php esc_url(the_field('photo_5')); ?>'"></a>
+<img class="pic-size" src="<?php  if (!empty($photo_3)) : echo esc_url(wp_get_attachment_image_url($photo_3,'150','220')); endif; ?>'"></a>
 <a href="<?php the_permalink(); ?>" rel="bookmark" class="blog-link">
-<img class="pic-size" src="<?php esc_url(the_field('photo_6')); ?>'"></a>
+<img class="pic-size" src="<?php  if (!empty($photo_4)) : echo esc_url(wp_get_attachment_image_url($photo_4,'150','220')); endif; ?>'"></a>
 </div>
 <div class="column-pic-25">
 <a href="<?php the_permalink(); ?>" rel="bookmark" class="blog-link">
-<img class="pic-size" src="<?php esc_url(the_field('photo_3')); ?>'"></a>
+<img class="pic-size" src="<?php  if (!empty($photo_5)) : echo esc_url(wp_get_attachment_image_url($photo_5,'150','220')); endif; ?>'"></a>
 <a href="<?php the_permalink(); ?>" rel="bookmark" class="blog-link">
-<img class="pic-size" src="<?php esc_url(the_field('photo_4')); ?>'"></a>
+<img class="pic-size" src="<?php  if (!empty($photo_6)) : echo esc_url(wp_get_attachment_image_url($photo_6,'150','220')); endif; ?>'"></a>
 <a href="<?php the_permalink(); ?>" rel="bookmark" class="blog-link">
-<img class="pic-size" src="<?php esc_url(the_field('photo_7')); ?>'"></a>
+<img class="pic-size" src="<?php  if (!empty($photo_7)) : echo esc_url(wp_get_attachment_image_url($photo_7,'150','220')); endif; ?>'"></a>
 <a href="<?php the_permalink(); ?>" rel="bookmark" class="blog-link">
-<img class="pic-size" src="<?php esc_url(the_field('photo_8')); ?>'"></a>
+<img class="pic-size" src="<?php  if (!empty($photo_8)) : echo esc_url(wp_get_attachment_image_url($photo_8,'150','220')); endif; ?>'"></a>
 </div>
 </div>
 

@@ -83,13 +83,13 @@ if ( function_exists('get_post_format') && get_post_format($post->ID) == 'link' 
 <img src="<?php  if (!empty($photo_1)) : echo esc_url(wp_get_attachment_image_url($photo_1,$size)); endif; ?>'" onerror="this.style.display='none'" />
 </div>
 <div class="box-ses" onclick="changeImage(this)">
-<img src="<?php  if (!empty($photo_1)) : echo esc_url(wp_get_attachment_image_url($photo_2,$size)); endif; ?>'" onerror="this.style.display='none'" />
+<img src="<?php  if (!empty($photo_2)) : echo esc_url(wp_get_attachment_image_url($photo_2,$size)); endif; ?>'" onerror="this.style.display='none'" />
 </div>
 <div class="box-ses" onclick="changeImage(this)">
-<img src="<?php  if (!empty($photo_1)) : echo esc_url(wp_get_attachment_image_url($photo_3,$size)); endif; ?>'" onerror="this.style.display='none'" />
+<img src="<?php  if (!empty($photo_3)) : echo esc_url(wp_get_attachment_image_url($photo_3,$size)); endif; ?>'" onerror="this.style.display='none'" />
 </div>
 <div class="box-ses" onclick="changeImage(this)">
-<img src="<?php  if (!empty($photo_1)) : echo esc_url(wp_get_attachment_image_url($photo_4,$size)); endif; ?>'" onerror="this.style.display='none'" />
+<img src="<?php  if (!empty($photo_4)) : echo esc_url(wp_get_attachment_image_url($photo_4,$size)); endif; ?>'" onerror="this.style.display='none'" />
 </div>
 
 

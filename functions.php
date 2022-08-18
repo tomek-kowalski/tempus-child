@@ -24,7 +24,7 @@ add_image_size( 'session', 360, 240, false ); // (cropped)
 
 
 function popup() {
-if (is_single() && 'katalog' == get_post_type() ||is_archive('session_type') ) {
+if (is_single() && 'katalog' == get_post_type() ||is_archive('session_type') || is_single() && 'home' == get_post_type()) {
 wp_enqueue_script('ajax-wear', get_stylesheet_directory_uri() . '/assets/js/ajax-wear.js', array('jquery'), null,true);
 }
 }
