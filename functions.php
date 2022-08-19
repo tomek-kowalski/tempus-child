@@ -24,23 +24,36 @@ add_image_size( 'session', 360, 240, false ); // (cropped)
 
 
 function popup() {
-if (is_single() && 'katalog' == get_post_type() ||is_archive('session_type') || is_single() && 'home' == get_post_type()) {
+if (is_single() && 'katalog' == get_post_type() || get_post_type( get_the_ID() ) == 'sacred-sessions'
+&& (has_term(array('sacred-temple-of-holy-womb','soul-vision-mission','shamanic-wisdom-temple','womb-pulsing-temple', 'priestess-initiation-temple','sacred-plant-ceremony','tantric-shakti-temple','embodied-photoshoot','coaching-mentoring','sacred-sessions-rituals'), 'session_type'))
+|| is_single() && 'home' == get_post_type()) {
 wp_enqueue_script('ajax-wear', get_stylesheet_directory_uri() . '/assets/js/ajax-wear.js', array('jquery'), null,true);
 }
 }
 add_action ('wp_enqueue_scripts','popup');
 
+	
+wp_register_script('preloader', get_stylesheet_directory_uri() . '/assets/js/preloader.js', array('jquery'), null,true);
+
+
 
 function keyword_theme_styles_and_scripts(){
 
-if (is_tag() || is_admin() || is_search('slides') || is_archive('slides') || is_single() && 'home' == get_post_type() ||
-is_search('product') || is_archive('product') || is_single() && 'katalog' == get_post_type() ||
-is_search('session_type') || is_archive('session_type') || is_single() && 'sacred-sessions' == get_post_type()
+if ((is_single() && 'home' == get_post_type()) ||
+(is_single() && 'katalog' == get_post_type()) ||
+(get_post_type( get_the_ID() ) == 'sacred-sessions'
+&& (has_term(array('sacred-temple-of-holy-womb','soul-vision-mission','shamanic-wisdom-temple','womb-pulsing-temple', 'priestess-initiation-temple','sacred-plant-ceremony','tantric-shakti-temple','embodied-photoshoot','coaching-mentoring'), 'session_type'))) ||
+(get_post_type( get_the_ID() ) == 'katalog'
+&& (has_term(array('yoni-wands','yoni-eggs','smudgers','scarfs','incenses','sacred-wear','bags'), 'product'))) ||
+(get_post_type( get_the_ID() ) == 'home'
+&& (has_term(array('bali','india','peru','philippines','poland','sicily','sri-lanka','thailand','vietnam'), 'slides')))
+
 ) {
-wp_enqueue_script('preloader', get_stylesheet_directory_uri() . '/assets/js/preloader.js', array('jquery'), null,true);
+wp_enqueue_script('preloader');
 }
 }
 add_action('wp_enqueue_scripts', 'keyword_theme_styles_and_scripts');
+
 
 function mind_defer_scripts( $tag, $handle, $src ) {
 $defer = array( 
