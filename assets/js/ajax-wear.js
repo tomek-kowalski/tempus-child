@@ -1,13 +1,13 @@
-const thumbs=document.querySelector(".thumb-img").children;
+jQuery("#ajaxbtn").click(function () {
+   jQuery.ajax({
+     type : 'post',
+     dataType : 'json',
+     url : myajax.ajax_url,
+     data : {action: 'tablo'},
+     success: function(response) {
+       //load the fetched php file into the div
+       jQuery('#ajax').html(response.content);
+     }
+   });
+ });
 
-function changeImage(event){
-  document.querySelector(".pro-img").src=event.children[0].src
-  
-  for(let i=0; i<thumbs.length;i++){
-    thumbs[i].classList.remove("active");
-  }
-  event.classList.add("active");
-
-}
-
-console.log('hi');

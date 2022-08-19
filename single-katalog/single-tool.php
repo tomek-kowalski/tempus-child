@@ -77,7 +77,6 @@ foreach( $current_tax as $current ) { ?>
 <div class="product-half">
 <div class="product-title">
 <h1><?php echo $product_name; ?></h1>
-<div class="cat-price"><?php echo $price; ?></div>
 </div>
 <ul>	
 <?php echo '<li class="cat-item">' .  $label_size . " " . strtoupper($size) . '</li>	'; ?>			
@@ -92,19 +91,22 @@ if (!empty($other_features)) :
 
 echo '<li class="cat-item">' . $label_other_features . " " . $other_features . '</li>';
 else : 
-endif;
-echo '<li class="cat-item">'  . $label_product_description . " " . $product_description . '</li>'; ?>
+endif; ?>	
 </ul>
+<div class="cat-price"><?php echo $price; ?></div>
 <div class="btn-post" delay="<?php echo esc_attr($rand);?>ms">
 <a href="<?php echo get_site_url() . $contact_link; ?>" class="btn-shape"><span class="btn-label"><?php echo $label_contact_link; ?></span></a>	
 </div>
 <div class="btn-post" delay="<?php echo esc_attr($rand);?>ms">
 <a href="<?php echo $payment_link; ?>" class="btn-shape"><span class="btn-label"><?php echo $label_payment_link; ?></span></a>
 </div>
+<ul>
+<?php echo '<li class="cat-item">'  . $label_product_description . " " . $product_description . '</li>'; ?>
+</ul>
 </div><!--product-half-->
 
 <div class="pic-half-tool single-wear-item-tool wow">
-<img class="single-wear-image" src="<?php if (!empty($thumbnail_url)) : echo esc_url($thumbnail_url); endif; ?>'" onerror="this.style.display='none'" >
+<img class="single-wear-image" src="<?php echo esc_url($thumbnail_url); ?>'">
 </div>
 </div>
 

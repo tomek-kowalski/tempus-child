@@ -1,4 +1,4 @@
-function closePopup() {
+function showclosePopup() {
   const popup    = document.querySelector('.full-screen');
   const slider   = document.querySelectorAll(".container-row");
   const nav      = document.getElementById('site-navigation');
@@ -7,7 +7,18 @@ function closePopup() {
   const showbtn  = document.querySelector('.btn-control');  
 
 
-  if (nav.style.display       == "" || "none") {
+  if (nav.style.display       === "flex") {
+    nav.style.display         = "none";
+    popup.classList.remove('hidden');
+    img.style.display         = "none";
+    product.style.display     = "none";
+    showbtn.style.display     = "none";
+
+    for (let i = 0; i < slider.length; i++) {
+      slider[i].style.display = "none";
+    }
+    
+  } else {
     nav.style.display         = "flex";
     popup.classList.add('hidden');
     img.style.display         = "block";
@@ -18,5 +29,9 @@ function closePopup() {
     for (let i = 0; i < slider.length; i++) {
     slider[i].style.display   = "block";
     }
-    
-  }}
+
+
+  }
+}
+
+console.log('confirm ok');

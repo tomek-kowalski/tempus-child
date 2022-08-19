@@ -4,7 +4,7 @@
  * @package WordPress
  */
 $rand = rand (0, 400);
-$size = 'wear-extra';
+
 //product value
 $product_name     		= get_field('product_name');
 $price      			= get_field('price');
@@ -15,12 +15,6 @@ $product_description    = get_field('product_description');
 $other_sizes    		= get_field('other_sizes');
 $other_features     	= get_field('other_features');
 
-
-$main_img    	    = get_field('main_img');
-$img_1    	        = get_field('img_1');
-$img_2	            = get_field('img_2');
-$img_3              = get_field('img_3');
-
 //product label
 $label_price      				= acf_get_field('label_price')["default_value"];
 $label_size        				= acf_get_field('label_size')["default_value"];
@@ -30,14 +24,19 @@ $label_product_description   	= acf_get_field('label_product_description')["defa
 $label_other_sizes    			= acf_get_field('label_other_sizes')["default_value"];
 $label_other_features     		= acf_get_field('label_other_features')["default_value"];
 $clients     					= acf_get_field('clients')["default_value"];
-
+$click 	    					= acf_get_field('click')["default_value"];
+$clickexit 	    			    = acf_get_field('clickexit')["default_value"];
 
 get_header();
 
 $add_class = (get_post_meta($post->ID, 'tempus_content_padding', true) == "off") ? 'no-padding' : '';	
 $sec_gallery = (get_post_meta(get_the_ID(), 'tempus_post_gallery_images', TRUE)) ? 'is-gallery' : ''; 
 
-?>
+if (has_post_thumbnail()) {
+	
+	$thumbnail_data = wp_get_attachment_image_src( get_post_thumbnail_id( get_the_ID() ), 'wear' );
+	$thumbnail_url = $thumbnail_data[0];
+} ?>
 
 
 <div class="container title_container archive-container">
@@ -75,15 +74,13 @@ foreach( $current_tax as $current ) { ?>
 				<div <?php post_class('post-page-cust ' . $add_class); ?> id="post-<?php the_ID(); ?>" >
 					<div class="post-content-cust post-left">
 					<div class="post-description">
-<div class="snap">
+						<div class="snap">
 
 
 <div class="product-half">
 <div class="product-title">
 <h1><?php echo $product_name; ?></h1>
-<div class="cat-price"><?php echo $price; ?></div>
 </div>
-
 <ul>		
 <?php echo '<li class="cat-item">' .  $label_size . " " . strtoupper($size) . '</li>	'; ?>			
 
@@ -97,47 +94,38 @@ if (!empty($other_features)) :
 
 echo '<li class="cat-item">' . $label_other_features . " " . $other_features . '</li>';
 else : 
-endif; 	
-echo '<li class="cat-item">'  . $label_product_description . " " . $product_description . '</li>'; ?>
+endif; ?>	
 </ul>
+<div class="cat-price"><?php echo $price; ?></div>
 <div class="btn-post" delay="<?php echo esc_attr($rand);?>ms">
 <a href="<?php echo get_site_url() . $contact_link; ?>" class="btn-shape"><span class="btn-label"><?php echo $label_contact_link; ?></span></a>	
 </div>
 <div class="btn-post" delay="<?php echo esc_attr($rand);?>ms">
 <a href="<?php echo $payment_link; ?>" class="btn-shape"><span class="btn-label"><?php echo $label_payment_link; ?></span></a>
 </div>
+<ul>
+<?php echo '<li class="cat-item">'  . $label_product_description . " " . $product_description . '</li>'; ?>
+</ul>
 </div><!--product-half-->
 
 <div class="pic-half">
+<div class="click-wear">
+<button id="ajaxbtn" onclick="showclosePopup()" class="btn-shape btn-control"><span class="btn-label"><?php echo $click ?><span></button>
+<div class="full-screen full-container-center hidden">
+<button onclick="showclosePopup()" class="btn-shape click-wear"><span class="btn-label"><?php echo $clickexit ?><span></button>
+<div id="ajax"></div>
+</div>
+</div>
 
-<div class="product">
-	
- 	<div class="main-img">
- 		<img src="<?php  if (!empty($main_img)) : echo esc_url(wp_get_attachment_image($main_img,$size)); endif; ?>'" onerror="this.style.display='none'" class="pro-img" alt="product" />
- 	</div>
- 	<div class="thumb-img">
-	 <div class="box active" onclick="changeImage(this)">
- 		   <img src="<?php  if (!empty($main_img)) : echo esc_url(wp_get_attachment_image($main_img,$size)); endif; ?>'" onerror="this.style.display='none'" />
- 	    </div>
- 		<div class="box" onclick="changeImage(this)">
- 		   <img src="<?php  if (!empty($img_1)) :  echo esc_url(wp_get_attachment_image_url($img_1,$size)); endif; ?>'" onerror="this.style.display='none'" />
- 	    </div>
- 	    <div class="box" onclick="changeImage(this)">
- 		   <img src="<?php  if (!empty($img_2)) :  echo esc_url(wp_get_attachment_image_url($img_2,$size)); endif; ?>'" onerror="this.style.display='none'" />
- 	    </div>
- 	    <div class="box" onclick="changeImage(this)">
- 		   <img src="<?php  if (!empty($img_3)) :  echo esc_url(wp_get_attachment_image_url($img_3,$size)); endif; ?>'" onerror="this.style.display='none'"/>
- 	    </div>
- 	</div>
- </div>
-
+<div class="single-wear-item wow">
+<img class="single-wear-image" src="<?php echo esc_url($thumbnail_url); ?>'">
+</div><!--single-wear-->
+</div>
+</div>
 </div><!--pic-half-->
 
 </div><!--snap-->
-
-</div></div>
 </div><!--post-content-->
-
 <div class="container-row slide-control">
 <div class="product-title"><h1><?php if(!empty($clients)) {
 echo $clients;
