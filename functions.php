@@ -16,7 +16,7 @@ add_theme_support( 'wear-extra');
 add_theme_support( 'session');
 
 add_image_size( 'wear', 150,240, false ); 
-add_image_size( 'tool', 220,220, false );
+add_image_size( 'tool', 480,480, false );
 add_image_size( 'slides', 220, 180, false ); // (cropped)
 add_image_size( 'mentor', 300, 300, false ); // (cropped)
 add_image_size( 'wear-extra', 300, 480, false ); // (cropped)
